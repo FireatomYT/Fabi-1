@@ -24,7 +24,7 @@ public final class Constants {
 	public static final int COLOR_WARNING = 0xFDB81E;
 
 	public static final String DEVELOPER_TAG = "@fireatomyt";
-	public static final long DEVELOPER_ID = 755390579252133929;
+	public static final long DEVELOPER_ID = 755390579252133929L;
 
 	public static final int DEFAULT_CACHE_SIZE = 50;
 }
