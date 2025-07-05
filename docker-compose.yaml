@@ -1,0 +1,13 @@
+services:
+  votl:
+    build:
+      context: .
+    restart: on-failure:2
+    volumes:
+      - C:\votl:/opt/votl
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+volumes:
+  votl:

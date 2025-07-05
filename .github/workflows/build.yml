@@ -1,0 +1,33 @@
+name: Build snapshot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_snapshot:
+    name: Build snapshot
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+      - name: Gradle Wrapper Validation
+        uses: gradle/actions/wrapper-validation@v4
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Get commit short sha
+        id: get_sha
+        run: echo "sha=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
+      - name: Build with Gradle and set runId
+        run: ./gradlew shadowJar -Psha=${{ env.sha }} -Psnap
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Snapshot-${{ env.sha }}
+          path: build/libs/VOTL-*

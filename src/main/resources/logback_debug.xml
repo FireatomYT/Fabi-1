@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true">
+    <property name="DEV_HOME" value="./logs"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-30.-30thread %4.4X{jda.shard} %-20.-20logger{0} [ %highlight(%-5level)] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE-DEBUG" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-30.-30thread %4.4X{jda.shard} %-20.-20logger{0} [ %yellow(%-5level)] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/votl.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${DEV_HOME}/votl.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep 20 days' worth of history capped at 40MB total size -->
+            <maxHistory>20</maxHistory>
+            <totalSizeCap>40MB</totalSizeCap>
+        </rollingPolicy>
+
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [ %-5level] [%mdc] [%logger{0}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <!-- rollover based on current debug file size -->
+            <fileNamePattern>${DEV_HOME}/debug.%i.log.zip</fileNamePattern>
+            <!-- keep 4 debug files -->
+            <minIndex>1</minIndex>
+            <maxIndex>4</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <!-- rollover when file size reaches 10 MB -->
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>[%d{dd.MM.yyyy HH:mm:ss}] [ %-5level] [%mdc] [%thread] %logger{35}: %.-1000msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <logger name="dev.fireatom.FABI" level="DEBUG" additivity="true">
+        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="CONSOLE-DEBUG" />
+    </logger>
+
+    <logger name="net.dv8tion" level="DEBUG" additivity="true">
+        <appender-ref ref="DEBUG"/>
+    </logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
