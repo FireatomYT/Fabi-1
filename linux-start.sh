@@ -2,7 +2,7 @@
 
 welcome() {
     echo ""
-    echo "Welcome to Fabi's Linux launcher"
+    echo "Welcome to FABI's Linux launcher"
     echo "Please select an option to begin:"
     echo ""
     echo "   1. Start the bot normally"
@@ -40,7 +40,7 @@ startLoop() {
 }
 
 startApplication() {
-    java -jar Main.jar
+    java -jar FABI.jar
 
     if [ "$1" != "false" ]; then
         welcome
