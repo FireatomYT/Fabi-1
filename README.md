@@ -10,15 +10,7 @@ Functions:
 Requirements: Java JDK/JRE 21
 
 Install OpenJDK21:
-1. `wget https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz`
-2. `tar xvf openjdk-21.0.2_linux-x64_bin.tar.gz`
-3. `mv jdk-21.0.2/ /usr/local/jdk-21`
-4. `tee -a /etc/profile.d/jdk21.sh<<EOF
-> export JAVA_HOME=/usr/local/jdk-21
-> export PATH=\$PATH:\$JAVA_HOME/bin
-> EOF`
-5. `source /etc/profile.d/jdk21.sh`
-6. `java --version`
+[here](https://green.cloud/docs/how-to-install-java-jdk-21-or-openjdk-21-on-debian-12/)
 #### From source:
 1. `git clone https://github.com/FireatomYT/Fabi-1`
 2. `cd FABI-1`
