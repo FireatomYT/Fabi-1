@@ -35,9 +35,3 @@ Inside folder `data` file `config.json` must be configured with data as stated b
     "webhook": "link to webhook, if you want to receive ERROR level logs"
 }
 ```
-
-## Inspiration/Credits
-Thanks to Chew ([JDA-Chewtils](https://github.com/Chew/JDA-Chewtils) and Chewbotcca bot) and jagrosh (JDA-Utilities)  
-[PurrBot](https://github.com/purrbot-site/PurrBot) by Andre_601 (purrbot.site)  
-[AvaIre](https://github.com/avaire/avaire) by Senither  
-Ryzeon & Inkception for [Discord (JDA) HTML Transcripts](https://github.com/Ryzeon/discord-html-transcripts)
