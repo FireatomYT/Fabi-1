@@ -40,7 +40,7 @@ startLoop() {
 }
 
 startApplication() {
-    java -jar FABI.jar
+    java -jar VOTL.jar
 
     if [ "$1" != "false" ]; then
         welcome
