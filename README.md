@@ -17,14 +17,6 @@ Install OpenJDK21:
 3. `./gradlew build`
 4. Finally `sh linux-start.sh` or `windows-start.bat`
 
-#### Prebuild jar:
-Download latest Release [here](https://github.com/FileEditor97/VOTL/releases/latest).  
-Or Snapshot build [here](https://github.com/FileEditor97/VOTL/actions/workflows/build.yml).
-
-#### Docker image:
-    docker pull fileeditor/votl
-More at [Docker hub](https://hub.docker.com/r/fileeditor/votl).
-
 #### Watchdog service:
 Available [here](https://github.com/FiLe-group/VOTL-watchdog).
 
