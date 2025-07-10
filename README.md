@@ -6,17 +6,22 @@ Functions:
 - Simple verification with join roles;
 - Ticketing.
 
-Visit https://votl.fileeditor.dev/ to learn more about available commands and to view documentation.
-
-## Contribute
-- [**Help translate!**](https://crowdin.com/project/voice-of-the-lord)
-- [Suggest changes to the documentation](https://github.com/FileEditor97/VOTL-docs)
-
 ## Installation
 Requirements: Java JDK/JRE 21
+
+Install OpenJDK21:
+1. `wget https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz`
+2. `tar xvf openjdk-21.0.2_linux-x64_bin.tar.gz`
+3. `mv jdk-21.0.2/ /usr/local/jdk-21`
+4. `tee -a /etc/profile.d/jdk21.sh<<EOF
+> export JAVA_HOME=/usr/local/jdk-21
+> export PATH=\$PATH:\$JAVA_HOME/bin
+> EOF`
+5. `source /etc/profile.d/jdk21.sh`
+6. `java --version`
 #### From source:
-1. `git clone https://github.com/FireatomYT/FABI-1-Test-2.0`
-2. `cd FABI-1-Test-2.0`
+1. `git clone https://github.com/FireatomYT/Fabi-1`
+2. `cd FABI-1`
 3. `./gradlew build`
 4. Finally `sh linux-start.sh` or `windows-start.bat`
 
