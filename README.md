@@ -13,7 +13,7 @@ Install OpenJDK21:
 [here](https://green.cloud/docs/how-to-install-java-jdk-21-or-openjdk-21-on-debian-12/)
 #### From source:
 1. `git clone https://github.com/FireatomYT/Fabi-1`
-2. `cd FABI-1`
+2. `cd Fabi-1`
 3. `./gradlew build`
 4. Finally `sh linux-start.sh` or `windows-start.bat`
 
